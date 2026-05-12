@@ -1,0 +1,405 @@
+Lab 1
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="get" action="">
+ Name: <input type="text" name="name">
+ <input type="submit">
+</form>
+
+<?php
+if (isset($_GET['name'])) {
+ echo "Hello, " . $_GET['name'];
+}
+?>
+
+</body>
+</html>
+
+
+Lab 2
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="post">
+ Name: <input type="text" name="name">
+ <input type="submit">
+</form>
+
+<?php
+if (isset($_POST['name'])) {
+ echo "Hello, " . $_POST['name'];
+}
+?>
+
+</body>
+</html>
+
+
+lab 3
+
+<form method="post">
+ Name: <input type="text" name="name"><br>
+ Email: <input type="text" name="email"><br>
+ <input type="submit">
+</form>
+
+<?php
+if ($_POST) {
+ echo "Name: " . $_POST['name'] . "<br>";
+ echo "Email: " . $_POST['email'];
+}
+?>
+
+Lab 4
+
+<?php
+if ($_POST) {
+ if (empty($_POST["name"])) {
+  echo "Name is required<br>";
+ }
+ if (empty($_POST["email"])) {
+  echo "Email is required<br>";
+ }
+}
+?>
+
+<form method="post">
+ Name: <input type="text" name="name"><br>
+ Email: <input type="text" name="email"><br>
+ <input type="submit">
+</form>
+
+Lab 5
+
+<?php
+if ($_POST) {
+ echo "Name: " . htmlspecialchars($_POST['name']);
+}
+?>
+
+<form method="post">
+ Name: <input type="text" name="name">
+ <input type="submit">
+</form>
+
+
+Lab 6
+
+<?php
+if ($_POST) {
+ if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+  echo "Valid Email";
+ } else {
+  echo "Invalid Email";
+ }
+}
+?>
+
+<form method="post">
+ Email: <input type="text" name="email">
+ <input type="submit">
+</form>
+
+Lab 7
+
+<form method="post">
+ Gender:
+ <input type="radio" name="gender" value="Male"> Male
+ <input type="radio" name="gender" value="Female"> Female
+ <input type="submit">
+</form>
+
+<?php
+if (isset($_POST['gender'])) {
+ echo "Gender: " . $_POST['gender'];
+}
+?>
+
+Lab 8
+
+Course:
+<select name="course" required>
+    <option value="">-- Select Course --</option>
+    <option value="BSIT">BSIT</option>
+    <option value="BSOA">BSOA</option>
+    <option value="AHRT">AHRT</option>
+    <option value="CSS">CSS</option>
+</select>
+<br>
+
+
+Lab 9
+
+<form method="post">
+ Message:<br>
+<textarea name="message" required></textarea><br>
+<input type="submit" value="Submit">
+</form>
+
+
+Lab 10
+
+<!DOCTYPE html>
+<html>
+<body>
+<form method="post">
+ Name: <input type="text" name="name"><br>
+ Email: <input type="text" name="email"><br>
+
+ Gender:
+ <input type="radio" name="gender" value="Male"> Male
+ <input type="radio" name="gender" value="Female"> Female<br>
+
+Course:
+<select name="course" required>
+    <option value="">-- Select Course --</option>
+    <option>BSIT</option>
+    <option >BSOA</option>
+    <option >AHRT</option>
+    <option >CSS</option>
+</select>
+<br><br>
+
+ Message:<br>
+ <textarea name="message"></textarea><br>
+
+ <input type="submit">
+</form>
+
+<?php
+if ($_POST) {
+ echo "Name: " . htmlspecialchars($_POST['name']) . "<br>";
+ echo "Email: " . htmlspecialchars($_POST['email']) . "<br>";
+ echo "Gender: " . $_POST['gender'] . "<br>";
+ echo "Course: " . $_POST['course'] . "<br>";
+ echo "Message: " . htmlspecialchars($_POST['message']);
+}
+?>
+<html>
+<body>
+
+Lab 11
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+ Name: <input type="text" name="name">
+ <input type="submit">
+</form>
+
+Lab 12
+<form method="post">
+ Name: <input type="text" name="name" value="<?php echo $_POST['name'] ?? ''; ?>">
+ <input type="submit">
+</form>
+
+Lab 13
+
+<!DOCTYPE html>
+<html>
+<body>
+<form method="post">
+ Password: <input type="password" name="password">
+ <input type="submit">
+</form>
+
+<?php
+if ($_POST) {
+ echo "Password received (not displayed for security).";
+}
+?>
+<html>
+<body>
+
+Lab 14
+
+<!DOCTYPE html>
+<html>
+<body>
+Hobbies:
+<br>
+<input type="checkbox" name="hobbies[]" value="Reading"> Reading<br>
+<input type="checkbox" name="hobbies[]" value="Gaming"> Gaming<br>
+<input type="checkbox" name="hobbies[]" value="Sports"> Sports<br>
+<input type="checkbox" name="hobbies[]" value="Reading books"> Reading books<br>
+<input type="checkbox" name="hobbies[]" value="Watching movie"> Watching movie<br>
+<br>
+<html>
+<body>
+
+Lab 15
+
+<form method="post">
+ Name: <input type="text">
+ <input type="submit">
+ <input type="reset">
+</form>
+
+Lab 16
+
+<form method="post">
+ Age: <input type="number" name="age">
+ <input type="submit">
+</form>
+
+<?php
+if ($_POST) {
+ if (is_numeric($_POST['age']) && $_POST['age'] > 0 && $_POST['age'] <= 120) {
+  echo "Valid age";
+ } else {
+  echo "Invalid age";
+ }
+}
+?>
+
+Lab 17
+
+<form method="post">
+ Name: <input type="text" name="name" required>
+ <input type="submit">
+</form>
+
+Lab 18
+
+<form method="get">
+ Name: <input type="text" name="name">
+ <input type="submit">
+</form>
+
+
+<form method="post">
+ Name: <input type="text" name="name">
+ <input type="submit">
+</form>
+
+Lab 19
+
+FORM.php
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="post" action="process.php">
+  Name: <input type="text" name="name"><br><br>
+
+  Email: <input type="text" name="email"><br><br>
+
+  <input type="submit">
+</form>
+
+</body>
+</html>
+
+
+PROCESS.php<br>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+
+  echo "Name: " . $name . "<br>";
+  echo "Email: " . $email;
+
+} else {
+  echo "No data received.";
+}
+?>
+
+</body>
+</html>
+
+Lab 20
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="POST">
+
+Name:
+<input type="text" name="name" required>
+<span style="color:red">*</span>
+<br><br>
+
+Email:
+<input type="email" name="email" required>
+<span style="color:red">*</span>
+<br><br>
+
+Gender:
+<input type="radio" name="gender" value="Male" required> Male
+<input type="radio" name="gender" value="Female"> Female
+<span style="color:red">*</span>
+<br><br>
+
+Course:
+<select name="course" required>
+    <option value="">-- Select Course --</option>
+    <option value="BSIT">BSIT</option>
+    <option value="BSOA">BSOA</option>
+    <option value="AHRT">AHRT</option>
+    <option value="CSS">CSS</option>
+</select>
+<span style="color:red">*</span>
+<br><br>
+
+Hobbies:
+<br>
+<input type="checkbox" name="hobbies[]" value="Reading"> Reading<br>
+<input type="checkbox" name="hobbies[]" value="Gaming"> Gaming<br>
+<input type="checkbox" name="hobbies[]" value="Sports"> Sports<br>
+<input type="checkbox" name="hobbies[]" value="Reading books"> Reading books<br>
+<input type="checkbox" name="hobbies[]" value="Watching movie"> Watching movie<br>
+<br>
+
+Message:
+<br>
+<textarea name="message" required></textarea>
+<span style="color:red">*</span>
+<br><br>
+
+<input type="submit" value="Submit">
+
+
+
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $gender = htmlspecialchars($_POST['gender']);
+    $course = htmlspecialchars($_POST['course']);
+    $message = htmlspecialchars($_POST['message']);
+
+    echo "<h2>Student Information</h2>";
+
+    echo "Name: " . $name . "<br>";
+    echo "Email: " . $email . "<br>";
+    echo "Gender: " . $gender . "<br>";
+    echo "Course: " . $course . "<br>";
+
+    if (isset($_POST['hobbies'])) {
+        echo "Hobbies: " . implode(", ", $_POST['hobbies']) . "<br>";
+    } else {
+        echo "Hobbies: None<br>";
+    }
+
+    echo "Message: " . $message . "<br>";
+}
+
+?>
+
+</body>
+</html>
+
